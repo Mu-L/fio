@@ -4128,6 +4128,11 @@ Measurements and reporting
 	`job_start`. For these properties, the values for the first job are
 	recorded for the group.
 
+        Also, options like :option:`percentile_list` and
+        :option:`unified_rw_reporting` should be consistent among the jobs in a
+        reporting group. Having options like these vary across the jobs in a
+        reporting group is an unsupported configuration.
+
 .. option:: new_group
 
 	Start a new reporting group. See: :option:`group_reporting`.  If not given,
@@ -5385,5 +5390,14 @@ containing two hostnames ``h1`` and ``h2`` with IP addresses 192.168.10.120 and
 	/mnt/nfs/fio/192.168.10.120.fileio.tmp
 	/mnt/nfs/fio/192.168.10.121.fileio.tmp
 
+This behavior can be disabled by the :option:`unique_filename` option.
+
 Terse output in client/server mode will differ slightly from what is produced
 when fio is run in stand-alone mode. See the terse output section for details.
+
+Also, if one fio invocation runs workloads on multiple servers, fio will
+provide at the end an aggregate summary report for all workloads. This
+aggregate summary report assumes that options affecting reporting like
+:option:`unified_rw_reporting` and :option:`percentile_list` are identical
+across all the jobs summarized. Having different values for these options is an
+unsupported configuration.
