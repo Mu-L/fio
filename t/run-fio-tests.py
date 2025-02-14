@@ -952,6 +952,24 @@ TEST_LIST = [
         'requirements':     [],
     },
     {
+        'test_id':          36,
+        'test_class':       FioJobFileTest,
+        'job':              't0036-post.fio',
+        'success':          SUCCESS_DEFAULT,
+        'pre_job':          't0036-pre.fio',
+        'pre_success':      SUCCESS_DEFAULT,
+        'requirements':     [],
+    },
+    {
+        'test_id':          37,
+        'test_class':       FioJobFileTest,
+        'job':              't0037-post.fio',
+        'success':          SUCCESS_DEFAULT,
+        'pre_job':          't0037-pre.fio',
+        'pre_success':      SUCCESS_DEFAULT,
+        'requirements':     [Requirements.linux, Requirements.libaio],
+    },
+    {
         'test_id':          1000,
         'test_class':       FioExeTest,
         'exe':              't/axmap',
@@ -1080,6 +1098,14 @@ TEST_LIST = [
         'parameters':       ['-f', '{fio_path}', '--dut', '{nvmecdev}'],
         'success':          SUCCESS_DEFAULT,
         'requirements':     [Requirements.linux, Requirements.nvmecdev],
+    },
+    {
+        'test_id':          1016,
+        'test_class':       FioExeTest,
+        'exe':              't/client_server.py',
+        'parameters':       ['-f', '{fio_path}'],
+        'success':          SUCCESS_DEFAULT,
+        'requirements':     [Requirements.linux],
     },
 ]
 
